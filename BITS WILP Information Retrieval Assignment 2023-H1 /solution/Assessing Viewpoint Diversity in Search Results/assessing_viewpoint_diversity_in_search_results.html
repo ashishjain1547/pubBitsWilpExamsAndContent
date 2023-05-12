@@ -1,0 +1,141 @@
+<head>
+	<script crossorigin="anonymous" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$.ajax({
+				url: window.location.protocol + "//" + window.location.hostname + "/p/bits-wilp-menu.html",
+				success: function (result) {
+					$("div.customTemporaryCodeHolder").html(result);
+					$("nav.customDynamicNav").html(
+						$("div.customTemporaryCodeHolder nav.customBitsWilpMenu").html()
+					);
+				}
+			});
+		}); 
+	</script>
+
+	<!-- Google AdSense Machine Learning Code -->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-3071098372371409",
+			enable_page_level_ads: true
+		});
+	</script>
+	<style>
+		pre {
+			overflow-x: auto;
+			white-space: pre-wrap;
+			white-space: -moz-pre-wrap;
+			white-space: -pre-wrap;
+			white-space: -o-pre-wrap;
+			word-wrap: break-word;
+		}
+	</style>
+</head>
+
+<nav class="customDynamicNav"> </nav>
+<div class="customTemporaryCodeHolder"> </div>
+<br />
+<!-- End of 'BITS WILP Menu Template For Copy-Paste'. It started from the top of the page from <head> tag. -->
+
+<pre>
+1. Problem. What is the problem/study that the paper addresses?
+
+Ans:
+Assessing Viewpoint Diversity in Search Results Using Ranking Fairness Metrics.
+The way pages are ranked in search results influences whether the users of search engines are exposed to more homogeneous, or rather to more diverse viewpoints. 
+
+However, this viewpoint diversity is not trivial to assess. 
+
+In this paper, researchers use existing and novel ranking fairness metrics to evaluate viewpoint diversity in search result rankings. 
+
+The researchers conducted a controlled simulation study that shows how ranking fairness metrics can be used for viewpoint diversity, how their outcome should be interpreted, and which metric is most suitable depending on the situation. 
+
+2. Related Work. What are other work(s) that solve similar problem(s)/conduct similar study?
+
+Ans:
+Diversity in search result rankings is not a novel topic. Several methods have been proposed to measure and improve diversity in ranked lists of search results [1; 2; 9; 20; 21].
+
+Unlike previous methods, which aim to balance relevance (e.g., in relation to a user query) and diversity (e.g., in relation to user intent), this research paper delves deeper into the notion of diversity. This research paper specifically focuses on ranking fairness (as in [27]) for assessing viewpoint diversity, which originates from the field of fair machine learning.
+
+[1] A. Abid, N. Hussain, K. Abid, F. Ahmad, M. S. Farooq, U. Farooq, S. A. Khan, Y. D. Khan, M. A. Naeem, and N. Sabir. A survey on search results diversification techniques. Neural Comput. Appl., 27(5):1207–1229, 2015.
+
+[2] R. Agrawal, S. Gollapudi, A. Halverson, and S. Ieong. Diversifying search results. Proc. 2nd ACM Int. Conf. Web Search Data Mining, WSDM’09, pages 5–14, 2009.
+
+[9] C. L. Clarke, M. Kolla, G. V. Cormack, O. Vechtomova, A. Ashkan, S. Büttcher, and I. MacKinnon. Novelty and diversity in information retrieval evaluation. ACM SIGIR 2008 - 31st Annu. Int. ACM SIGIR Conf. Res. Dev. Inf. Retrieval, Proc., pages 659–666, 2008.
+
+[20] T. Sakai and R. Song. Evaluating diversified search results using per-intent graded relevance. SIGIR’11 Proc. 34th Int. ACM SIGIR Conf. Res. Dev. Inf. Retr., pages 1043–1052, 2011.
+
+[21] T. Sakai and Z. Zeng. Which Diversity Evaluation Measures Are “ Good ”? In SIGIR’19, pages 595–604, 2019.
+
+[27] K. Yang and J. Stoyanovich. Measuring fairness in ranked outputs. In Proc. 29th Int. Conf. Sci. Stat. Database Manag., SSDBM ’17, pages 1–6, New York, NY, USA, 2017. Association for Computing Machinery.
+
+3. Difference from Related Work. How is this paper different from other techniques mentioned in the related work section? What is new about their approach?
+
+Ans:
+
+(1) Unlike previous methods, which aim to balance relevance (e.g., in relation to a user query) and diversity (e.g., in relation to user intent), this research paper delves deeper into the notion of diversity. This research paper specifically focuses on ranking fairness (as in [27]) for assessing viewpoint diversity, which originates from the field of fair machine learning.
+
+(2) Related work referred presents ideas and solutions worked towards ranking fairness and the mitigation of bias, while this research paper aims to to quantify the degree of viewpoint diversity in search result rankings.
+
+
+4. Methodology. Summarize the method(s) proposed in the paper.
+
+
+Ans:
+Binomial viewpoint fairness. One aim for viewpoint diversity may be to treat one specific viewpoint, e.g., a minority viewpoint, fairly.
+
+Multinomial viewpoint fairness. Another aim when evaluating viewpoint diversity may be that all viewpoints are covered fairly.
+
+Evaluating statistical parity. In this paper, we use ranking fairness metrics to assess viewpoint diversity in search result rankings. These are based on the notion of statistical parity, which is present in a ranking when the viewpoints that documents express do not a↵ect their position in the ranking. However, we are only given the ranking and viewpoint per document and cannot assess the ranking algorithm directly. Statistical parity thus needs to be approximated.
+
+Discounting the ranking fairness computation. User attention depletes rapidly as the ranks go up [13; 18]. For example, in a regular web search, the majority of users may not even view more than 10 documents. This means that a measure of viewpoint diversity needs to consider the rank of documents, and not just whether viewpoints are present.
+
+Normalization. When evaluating and comparing metrics, it is useful if they all operate on the same scale. We thus only consider normalized ranking fairness metrics.
+
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgI9_i27LgSB8nRbs1z_2eQS_EQ7wtZRwsMxc25uWWi6r1YzcrbOWV19qNbsDN9L1ZaSymeaDhodbKgrqhZc_Qd7UiYVqFQjNHmbwSRsH0TO9Ewl6z0FscaU_PElhBbz39gAEAKAyF9rQDwpDFKL3NkBNmeFK_0jqSpLfwkHaE-yXP1AImQq_-FvCzEwA/s390/1.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" width="600" data-original-height="107" data-original-width="390" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgI9_i27LgSB8nRbs1z_2eQS_EQ7wtZRwsMxc25uWWi6r1YzcrbOWV19qNbsDN9L1ZaSymeaDhodbKgrqhZc_Qd7UiYVqFQjNHmbwSRsH0TO9Ewl6z0FscaU_PElhBbz39gAEAKAyF9rQDwpDFKL3NkBNmeFK_0jqSpLfwkHaE-yXP1AImQq_-FvCzEwA/s600/1.png"/></a></div>
+
+5. Datasets. Did the paper use any datasets for their experiments? Summarize them.
+
+To simulate different ranking scenarios, we first generate three synthetic sets S1, S2, and S3 to represent different viewpoint distributions. The items in each set simulate viewpoint labels for 700 documents (i.e., to enable a simple balanced distribution over seven viewpoints) and are distributed as shown in Table 4. Whereas S1 has a balanced distribution of viewpoints, S2 and S3 are skewed towards supporting viewpoints.8 We use S1, S2, and S3 to simulate both binomial and multinomial viewpoint fairness.
+
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2CuYO0CplR3xKOo_9LFsal-h_yXHW2z8yxDSM2QTrOdVRKlGRxWODqP5rduXgGRqfV44nAMa896_315mFiYuaB9U2shA12vsSFO096En_rnwbLskf4g1RvQtguJ3NV2xRJ4SdTFRU7CONgz9EAo2cGuNYt0R2HhS18w2Nkzdp-mPhkPC6SAJt5PDjTQ/s546/2.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" width="600" data-original-height="170" data-original-width="546" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2CuYO0CplR3xKOo_9LFsal-h_yXHW2z8yxDSM2QTrOdVRKlGRxWODqP5rduXgGRqfV44nAMa896_315mFiYuaB9U2shA12vsSFO096En_rnwbLskf4g1RvQtguJ3NV2xRJ4SdTFRU7CONgz9EAo2cGuNYt0R2HhS18w2Nkzdp-mPhkPC6SAJt5PDjTQ/s600/2.png"/></a></div>
+
+6. Experiments. Briefly describe what experiments were performed.
+
+Sampling. We create rankings of the viewpoint labels in S1, S2, and S3 by conducting a weighted sampling procedure. To create a ranking, viewpoint labels are gradually sampled from one of the three sets without replacement to fill the individual ranks. Each viewpoint label in the set is assigned one of two different sample weights that determine the labels’ probability of being drawn. These two sample weights are controlled by the ranking bias parameter alpha and given by: 
+
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEcT5VjExbfqKpxogJZRXv52HX05_1HGA6QKL1LDUWu3ki355T3aPVf88s_bJ7wB7lRGrIdcZ_ycvAaSoyqrnKrkff7hsAgFgHH1j-QLZqd4K6LgeDNWSW8SzrImY1buMgBA0EcXqVL2EiUj9J6aRjdpTXBC1wKTgiAHpAOX-6J36xPo520RKibW1hDg/s542/3.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" width="600" data-original-height="525" data-original-width="542" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEcT5VjExbfqKpxogJZRXv52HX05_1HGA6QKL1LDUWu3ki355T3aPVf88s_bJ7wB7lRGrIdcZ_ycvAaSoyqrnKrkff7hsAgFgHH1j-QLZqd4K6LgeDNWSW8SzrImY1buMgBA0EcXqVL2EiUj9J6aRjdpTXBC1wKTgiAHpAOX-6J36xPo520RKibW1hDg/s600/3.png"/></a></div>
+
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgItSrLWMIAN9BBBjlHF4nP7WW8XOX81UhC-es4lNQFCnRE3pVgOgS_JbR81Yk6TFNc9qBnR6m-OmIMlVTq7gl1m9_Zg8iqCwGKMclByp2-j7B-gSxlZIi_BBt_LrAZn-luINrnGWR_VS1plNrxQGvq9KXtloBIQgEuxHwTaWY-CFZ-RiTRwQ8K5P9TVg/s727/4.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" height="600" data-original-height="727" data-original-width="461" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgItSrLWMIAN9BBBjlHF4nP7WW8XOX81UhC-es4lNQFCnRE3pVgOgS_JbR81Yk6TFNc9qBnR6m-OmIMlVTq7gl1m9_Zg8iqCwGKMclByp2-j7B-gSxlZIi_BBt_LrAZn-luINrnGWR_VS1plNrxQGvq9KXtloBIQgEuxHwTaWY-CFZ-RiTRwQ8K5P9TVg/s600/4.png"/></a></div>
+
+7. Results. What is the lesson learned from the experiments?
+
+We adapted existing ranking fairness metrics to measure binomial viewpoint fairness and proposed a novel metric that evaluates multinomial viewpoint fairness. We find that despite some limitations, the metrics reliably detect viewpoint diversity in search results in our controlled scenarios. Crucially, our simulations show how these metrics can be interpreted and their relative strengths.
+
+This lays the necessary groundwork for future research to assess viewpoint diversity in actual search results. We plan to perform such evaluations of existing web search engines concerning highly debated topics and upcoming elections. Such work would not only provide tremendous insight into the current state of viewpoint diversity in search result rankings but pave the way for a greater understanding of how search result rankings may affect public opinion.
+
+8. Three major strengths of the paper
+
+Strength 1: The paper builds on top of past research by bringing in the idea of quantifying viewpoint diversity in rankings.
+
+Strength 2: The approach to problem solving is purely statistical and can be safely relied upon.
+
+Strength 3: Experiments are easily repeatable in lab.
+
+9. Three major weaknesses of the paper
+
+Weakness 1: Application of the reseach is limited by the nature of overall distribution of protected and non-protected items in the ranking.
+Also, choice of metric depends also on the ranking bias.
+
+5.3: Caveats and Limitations
+We note that our simulation study is limited in at least three important ways. First, we consider a scenario in which documents have correctly been assigned multinomial viewpoint labels. This allows us to study their behavior in a controlled setting. In reality, existing viewpoint labeling methods are prone to biases and issues of accuracy. Current opinion mining techniques are still limited in their ability to assign such labels [25] and crowdsourcing viewpoint annotations from human annotators can be costly and also prone to biases and variance [26].
+
+Second, we assume that any document in a search result ranking can be assigned some viewpoint label concerning a given disputed topic. It is realistically possible for a document to contain several, or even all available viewpoints (e.g., a debate forum page). In these cases, assigning an overarching viewpoint label might oversimplify the nuances in viewpoints that exist within rankings and thereby not leading to a skewed assessment of viewpoint diversity in the search result ranking. Future work could look into best practices of assigning viewpoint labels to documents. Third, our simulation of multinomial viewpoint fairness included only one specific case in which one viewpoint is treated differently compared to the other six. There are other scenarios where multinomial viewpoint fairness could become relevant. These scenarios di↵er in how many viewpoint categories there are, how many items are advantaged in the ranking, and to what degree. Simulating all of these potential scenarios is beyond the scope of this paper. Future work could however explore how metrics such as nDJS behave in such scenarios.
+
+10. Scope of Work. How can you/your employer benefit from this work? If not, in which domain can this be applied?
+
+The research is relevant to a team working in the domain of search engines and ranked information retrieval.
+</pre>

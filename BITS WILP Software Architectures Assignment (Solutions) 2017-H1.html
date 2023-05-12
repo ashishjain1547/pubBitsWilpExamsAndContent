@@ -1,0 +1,114 @@
+<head>
+    <script crossorigin="anonymous" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: window.location.protocol + "//" + window.location.hostname + "/p/bits-wilp-menu.html",
+                success: function (result) {
+                    $("div.customTemporaryCodeHolder").html(result);
+                    $("nav.customDynamicNav").html(
+                        $("div.customTemporaryCodeHolder nav.customBitsWilpMenu").html()
+                    );
+                }
+            });
+        }); 
+    </script>
+    <style>
+        pre {
+            overflow-x: auto;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .customSection a>img {
+            width: 100%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<nav class="customDynamicNav">
+</nav>
+<div class="customTemporaryCodeHolder">
+</div>
+<br />
+<!-- End of 'BITS WILP Menu Template For Copy-Paste'. It started from the top of the page from <HEAD> tag. -->
+Link to StarUML File: 
+<br/>
+<a href="https://drive.google.com/open?id=1O4628anEHgpN1mjHhnnN4qkFVgStefBn" target="_blank">SA Assignment (UML)</a>
+<br/>
+<pre>
+SOFTWARE ARCHITECTURE ASSIGNMENT
+
+Problem: Design a speech recognition software system case study.
+The input is speech recorded in waveform in single words as well as whole sentences. It is restricted to syntax and vocabulary need for a specific application such as database query. 
+The output is machine representation of English phrases (often used tuples). The transformations involved linguistic, acoustic-phonetic and statistical expertise.
+It is assumed that there is no consistent algorithm that combines all the necessary procedures for recognizing speech. The problem is worse when it is affected by ambiguities of spoken language, noisy data, the individual peculiarities of speakers such as vocabulary, pronunciation and syntax.
+Which architectural style and design patterns will be most suitable to design such system?
+
+Solution: The Speech Recognition Software system involves a number of procedures to carried out on the speech inpyt given by the user. These procedures are recording input from the user in the form of audio waveform, transforming audio waveform into respective phonemes/words, and then forming SQL queries from the spoken words.
+No software system has a consistent algorithm that combines all the necessary procedures for recognizing the speech, this property of the system makes the ‘Blackboard’ design pattern suitable for its implementation.
+We develop the system as a collection of independent programs that work cooperatively to solve a particular part of the overall task. Our system will have the following parts:
+Blackboard:		Class SpeechReconitionBlackboard
+Knowledge Sources:	Classes Microphone, PhonemeTokenizer and QueryBuilder
+Controller:		Class SpeechRecognitionController
+The blackboard ‘SpeechReconitionBlackboard’ is the central data store, elements of the solution space and control data are stored here. 
+The controller SpeechRecognitionController monitors the state of the blackboard and calls respective methods of the Knowledge Sources classes depending upon the state of the blackboard. For example, for Microphone class, controller calls ‘startRecording()’; for PhonemeTokenizer class, controller calls ‘tokenize()’; for QueryBuilder  class, controller calls ‘buildQuery()’.
+Microphone takes care of the acoustic-phonetic transformation, PhonemeTokenizer takes care of the linguistic transformation and QueryBuilder  takes care of the statistical expertise required to form the SQL queries.
+Operation starts when user calls ‘startOperation()’ on the ‘SpeechRecognitionController’ class, the Speech Recognition System runs in a loop, taking speech input via ‘Microphone’ class that has methods ‘startRecording()’ and ‘stopRecording()’ for it.
+After the recording is over, ‘SpeechRecognitionController’ calls tokenize() method on the PhonemeTokenizer class. 
+Now when word tokens are available on the SpeechReconitionBlackboard from PhonemeTokenizer, controller monitors this and calls buildQuery() method on the QueryBuilder class.
+The QueryBuilder updates the SpeechReconitionBlackboard with the generated SQL query.
+Certain keywords could be stored in the system memory that it catches immediately and these stored words tell about the starting/ending of the query. For example, ‘START’ and ‘END’ to tell the system to start or terminate the query here.
+</pre>
+Usecase Diagram:
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://2.bp.blogspot.com/-Ku31UmfshG4/XdWFcMteSqI/AAAAAAAAEDU/AZQUYr5Uk_kLr__Tjl6Yr17qexzdhJLlgCK4BGAYYCw/s1600/Use%2BCase%2BDiagram__UseCaseDiagram1_0.jpg"
+        imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="400"
+            src="https://2.bp.blogspot.com/-Ku31UmfshG4/XdWFcMteSqI/AAAAAAAAEDU/AZQUYr5Uk_kLr__Tjl6Yr17qexzdhJLlgCK4BGAYYCw/s400/Use%2BCase%2BDiagram__UseCaseDiagram1_0.jpg"
+            width="367" /></a></div>
+Class Diagram:
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://2.bp.blogspot.com/-KzPn_pUk-jw/XdWFcMMmgRI/AAAAAAAAEDY/tY6YT5tsHDII7A6LeDbdCiaREvutsRl7gCK4BGAYYCw/s1600/Class%2BDiagram__ClassDiagram1_1.jpg"
+        imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="341"
+            src="https://2.bp.blogspot.com/-KzPn_pUk-jw/XdWFcMMmgRI/AAAAAAAAEDY/tY6YT5tsHDII7A6LeDbdCiaREvutsRl7gCK4BGAYYCw/s400/Class%2BDiagram__ClassDiagram1_1.jpg"
+            width="400" /></a></div>
+
+Activity Diagram:
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://4.bp.blogspot.com/-1jPo_Ea3wF4/XdWFbrSCzEI/AAAAAAAAEDI/h1zFwumCLWolgBA6cV6JpoH8srvZX_0bgCK4BGAYYCw/s1600/Activity%2BDiagram__ActivityDiagram1_3.jpg"
+        imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="400"
+            src="https://4.bp.blogspot.com/-1jPo_Ea3wF4/XdWFbrSCzEI/AAAAAAAAEDI/h1zFwumCLWolgBA6cV6JpoH8srvZX_0bgCK4BGAYYCw/s400/Activity%2BDiagram__ActivityDiagram1_3.jpg"
+            width="386" /></a></div>
+
+
+Package Diagram:
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://3.bp.blogspot.com/-_ZSKmhO1RBA/XdWFcKgLkpI/AAAAAAAAEDg/3Xr4c0HUGJICyWM3DUNybDWXxSLhmRCtQCK4BGAYYCw/s1600/Package%2BDiagram__PackageDiagram1_5.jpg"
+        imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="341"
+            src="https://3.bp.blogspot.com/-_ZSKmhO1RBA/XdWFcKgLkpI/AAAAAAAAEDg/3Xr4c0HUGJICyWM3DUNybDWXxSLhmRCtQCK4BGAYYCw/s400/Package%2BDiagram__PackageDiagram1_5.jpg"
+            width="400" /></a></div>
+
+Sequence Diagram:
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://2.bp.blogspot.com/-OqrHT9pITbo/XdWFcLdCcnI/AAAAAAAAEDk/kwrClLcZP88wEvoEnsNZdzM6STugvUvNQCK4BGAYYCw/s1600/Sequence%2BDiagram__Interaction1__SequenceDiagram1_2.jpg"
+        imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="310"
+            src="https://2.bp.blogspot.com/-OqrHT9pITbo/XdWFcLdCcnI/AAAAAAAAEDk/kwrClLcZP88wEvoEnsNZdzM6STugvUvNQCK4BGAYYCw/s400/Sequence%2BDiagram__Interaction1__SequenceDiagram1_2.jpg"
+            width="400" /></a></div>
+
+State Chart Diagram:
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://3.bp.blogspot.com/-DsFtR8Oz19U/XdWFcO1fU4I/AAAAAAAAEDc/rATIB-t5LHc5wtgY4dROFviNRq6RHIpOACK4BGAYYCw/s1600/State%2BChart%2BDiagram__StatechartDiagram1_4.jpg"
+        imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="210"
+            src="https://3.bp.blogspot.com/-DsFtR8Oz19U/XdWFcO1fU4I/AAAAAAAAEDc/rATIB-t5LHc5wtgY4dROFviNRq6RHIpOACK4BGAYYCw/s400/State%2BChart%2BDiagram__StatechartDiagram1_4.jpg"
+            width="400" /></a></div>
+
+Deployment Diagram:
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://4.bp.blogspot.com/-Sw0kJ-wDyeg/XdWFcM74bLI/AAAAAAAAEDQ/osUhCauEO18E_3hffNnhIaQNr4YrDjHBgCK4BGAYYCw/s1600/Deployment%2BDiagram__DeploymentDiagram1_6.jpg"
+        imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="180"
+            src="https://4.bp.blogspot.com/-Sw0kJ-wDyeg/XdWFcM74bLI/AAAAAAAAEDQ/osUhCauEO18E_3hffNnhIaQNr4YrDjHBgCK4BGAYYCw/s400/Deployment%2BDiagram__DeploymentDiagram1_6.jpg"
+            width="400" /></a></div>

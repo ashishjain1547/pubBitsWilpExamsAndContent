@@ -1,0 +1,158 @@
+<head>
+	<script crossorigin="anonymous" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$.ajax({
+				url: window.location.protocol + "//" + window.location.hostname + "/p/bits-wilp-menu.html",
+				success: function (result) {
+					$("div.customTemporaryCodeHolder").html(result);
+					$("nav.customDynamicNav").html(
+						$("div.customTemporaryCodeHolder nav.customBitsWilpMenu").html()
+					);
+				}
+			});
+		}); 
+	</script>
+
+	<!-- Google AdSense Machine Learning Code -->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-3071098372371409",
+			enable_page_level_ads: true
+		});
+	</script>
+	<style>
+		pre {
+			overflow-x: auto;
+			white-space: pre-wrap;
+			white-space: -moz-pre-wrap;
+			white-space: -pre-wrap;
+			white-space: -o-pre-wrap;
+			word-wrap: break-word;
+		}
+	</style>
+</head>
+
+<nav class="customDynamicNav"> </nav>
+<div class="customTemporaryCodeHolder"> </div>
+<br />
+<!-- End of 'BITS WILP Menu Template For Copy-Paste'. It started from the top of the page from <head> tag. -->
+
+<pre>
+SQL> create table student_ashish_12345 (sid int primary key, sname varchar2(10), sbranch char(5), sage int constraint stud_sage_ck check (sage <= 25));
+
+SQL> create table course_ashish_12345 (cid int primary key, cname char(4) unique, units int);
+
+SQL> create table studentcourse_ashish_12345 (stid int, cno int, constraint sc_pk primary key(stid, cno), constraint sc_fk1 foreign key (stid) references bits_student (sid), constraint sc_fk2 foreign key (cno) references bits_course (cid));
+
+SQL> select table_name from tabs where table_name like '%ASHISH_12345';
+
+-------------------------------------------------------
+Q1. Get branch name and number of students in each branch.
+
+A1. select sbranch, count(sid) from student_ashish_12345 group by sbranch;
+
+Q2. Get sid and sname for those whose age is > 20 and in CSE branch.
+
+A2. select sid, sname from student_ashish_12345 where sage > 20 and sbranch = 'CSE';
+
+Q3. Get sid and sname for those whose name starts with ‘M’.
+A3. select sid, sname from student_ashish_12345 where sname like 'M%';
+
+Q4.  Get sid, sname and number of courses registered for those who have at least one course registration.
+
+select sid, sname, cnt 
+from student_ashish_12345 a, 
+	(select stid, count(stid) as cnt 
+	from studentcourse_ashish_12345 
+	group by stid having count(stid) >= 1) b 
+where a.sid = b.stid;
+
+Q5. Get sid, sname for those who have not registered for any course.
+
+select sid, sname from student_ashish_12345 a where a.sid not in (select unique stid from studentcourse_ashish_12345);
+
+Q6. Get cid, and name for  courses registered by all students from EEE.
+
+--Give the cid, cname of the course 
+	for which there does not exist an 'EEE' student 
+		for whom there does not exist an entry in studentcourse table 
+	
+
+select cid, cname from course_ashish_12345 a 
+where not exists (	
+	select sid from student_ashish_12345 b 
+	where b.sbranch = 'EEE' and not exists (
+		select stid from studentcourse_ashish_12345 c 
+		where c.stid = b.sid and c.cno = a.cid
+	)
+);
+
+
+--Course that has not been taken by any of the EEE students.
+select cid, cname from course_ashish_12345 a where not exists (
+	select stid from student_ashish_12345 b, studentcourse_ashish_12345 c where b.sid = c.stid and sbranch = 'EEE' and a.cid = c.cno
+);
+
+
+Q7. Get sid and sname for those registered for at least 3 courses.
+select sid, sname from student_ashish_12345
+where sid in (
+	select stid from studentcourse_ashish_12345 
+	group by stid having count(cno) >= 3
+);
+
+Q8. Get sid and sname for those whose name has 6 characters.
+
+A8. select sid, sname from student_ashish_12345 where length(sname) = 6;
+
+Q9. Get sid and sname for those who have not registered for any 5 credit course.
+
+A9. 
+
+select sid, sname from student_ashish_12345 a
+where a.sid not in (
+	select stid from studentcourse_ashish_12345 b, course_ashish_12345 c
+	where b.cno = c.cid and c.units = 5
+);
+
+Q10. Get sid, sname  for those registered for all 3 credit courses.
+--Give the student sid, name 
+	for whom there does not exist a three-credit-course
+		for whom and which there does not exist an entry in the studentcourse table.
+
+select a.sid, a.sname from student_ashish_12345 a 
+where not exists (
+	select b.cid from course_ashish_12345 b 
+	where b.units = 3 and not exists (
+		select c.stid, c.cno from studentcourse_ashish_12345 c 
+		where c.stid = a.sid and c.cno = b.cid
+	)
+);
+
+select a.sid, a.sname from student_ashish_12345 a where not exists (select b.cid from course_ashish_12345 b where b.units = 3 and not exists (select c.stid, c.cno from studentcourse_ashish_12345 c where c.stid = a.sid and c.cno = b.cid));
+		
+Q11. Get sid and sname for those registered for the course ‘OS’.
+
+select a.sid, a.sname from student_ashish_12345 a 
+where sid in (
+	select b.stid from studentcourse_ashish_12345 b 
+	where b.cno in (
+		select c.cid from course_ashish_12345 c 
+		where c.cname = 'OS'
+	)
+);		
+
+Q12. Get cid and cname for thoses not registered by any CSE student.
+
+select cid, cname from course_ashish_12345 
+where cid not in (
+	select distinct cno from studentcourse_ashish_12345 
+	where stid in (
+		select sid from student_ashish_12345 
+		where sbranch = 'CSE'
+	)
+);
+</pre>

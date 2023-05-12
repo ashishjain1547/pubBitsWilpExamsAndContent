@@ -1,0 +1,75 @@
+<head>
+    <script crossorigin="anonymous" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: window.location.protocol + "//" + window.location.hostname + "/p/bits-wilp-menu.html",
+                success: function (result) {
+                    $("div.customTemporaryCodeHolder").html(result);
+                    $("nav.customDynamicNav").html(
+                        $("div.customTemporaryCodeHolder nav.customBitsWilpMenu").html()
+                    );
+                }
+            });
+        }); 
+    </script>
+</head>
+<nav class="customDynamicNav">
+</nav>
+<div class="customTemporaryCodeHolder">
+</div>
+<br/>
+<!-- End of 'BITS WILP Menu Template For Copy-Paste'. It started from the top of the page from <HEAD> tag. -->
+<div dir="ltr" style="text-align: left;" trbidi="on">
+    Birla Institute of Technology &amp; Science, Pilani
+    <br /> Work-Integrated Learning Programmes Division
+    <br /> Second Semester 2016-2017
+    <br /> EC-1 Lab Component
+    <br /> Course Title : Data Structures &amp; Algorithms Design Due Date : 02/05/2017
+    <br /> Course No : SS ZG 519 Total : 10 marks
+    <br />
+    <p>
+        <br/>Given adirected, weighted graph in the format described below, your task is to nd the shortest distance between two
+        vertices A and B in the graph. If there are multiple shortest paths between A and B, you have to nd the path with
+        the least number of edges.
+        <br/>Input Format
+        <br/>The vertices are represented by numbers starting from one. The rst line will include two numbers N and M, the number
+        of vertices in the graph and the number of edges in the graph respectively. The following M lines will have three
+        numbers each, u, v, w which represents adirected edge between u and v with a weight w. The nal line will have the
+        values of A and B, the nodes between which you will have to nd the shortest path.
+        <br/>Output Format
+        <br/>Print two numbers separated by a space: C E, where C is the cost from A to B and E is the number of edges from A
+        to B. For unreachable nodes, print -1 -1, denoting no valid distance and no valid number of edges, i.e. C = -1 and
+        E = -1.
+        <br/>Example 1
+        <br/>Consider the following graph. It has ve vertices and ve edges. We have to nd the shortest part from vertex 1 to vertex
+        5. There are two shortest paths, based on the weight of the path, from vertex 1 to vertex 5: path 1,2,5 and path
+        1,3,4,5. But we want to nd the path with minimum number of edges. So we pick the path with total weight 3 and number
+        of edges 2.
+    </p>
+    <br />
+    <br />
+    <a href="http://1.bp.blogspot.com/-XU6YxxKIwFo/WlM-2yUQWjI/AAAAAAAACwg/fSIOCXc6xOonM7sAxMipeFJiiE6t1cHygCK4BGAYYCw/s1600/DSA%2BAssignment%2BQuestion%2BImage%2B2017-H1.PNG"
+        imageanchor="1">
+        <img border="0" src="https://1.bp.blogspot.com/-XU6YxxKIwFo/WlM-2yUQWjI/AAAAAAAACwg/fSIOCXc6xOonM7sAxMipeFJiiE6t1cHygCK4BGAYYCw/s1600/DSA%2BAssignment%2BQuestion%2BImage%2B2017-H1.PNG"
+        />
+    </a>
+    <br />
+    <br /> Input for Example 1
+    <br /> 5 5
+    <br /> 1 2 1
+    <br /> 1 3 1
+    <br /> 2 5 2
+    <br /> 3 4 1
+    <br /> 4 5 1
+    <br /> 1 5
+    <br /> Output for Example 1
+    <br /> 3 2
+    <br />
+    <br /> Constraints
+    <br /> Consider the fact the input graph can be quite large. You should come up with e cient
+    <br /> code to avoid the timeout error. However, there is a limit on the number of vertices and
+    <br /> number of vertices as follows.
+    <br /> 1 &lt;= M &lt;= 104
+    <br /> 1 &lt;= N &lt;= 104
+    </div>
